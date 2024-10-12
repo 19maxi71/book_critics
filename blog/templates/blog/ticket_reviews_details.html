@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ ticket.title }}</title>
+</head>
+<body>
+    <h1>{{ ticket.title }}</h1>
+    <p>{{ ticket.description }}</p>
+    <h2>Reviews:</h2>
+    {% for review in reviews %}
+        <div>
+            <h3>{{ review.headline }}</h3>
+            <p>Rating: {{ review.rating }}</p>
+            <span> | </span>
+            <p>{{ review.body }}</p>
+            <p>Reviewed by: {{ review.user.username }} on {{ review.time_created }}</p>
+            <span> | </span>
+            <a href="{% url 'blog:edit_review' review.id %}">Edit</a>
+            <form method="POST" action="{% url 'blog:delete_review' review.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    {% empty %}
+        <p>No reviews yet for this ticket.</p>
+    {% endfor %}
+    <a href="{% url 'blog:create_review' ticket.id %}">Add a Review</a>
+    <a href="{% url 'blog:feed' %}">Back to Feed</a>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<h1>Edit Ticket</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'blog:ticket_detail' ticket.id %}">Cancel</a>

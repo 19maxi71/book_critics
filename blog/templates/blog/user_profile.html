@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>PROFILE OF USER:{{ profile_user.username }}</title>
+</head>
+<body>      
+    <h2>{{ profile_user.username }}'s Profile</h2>
+
+    <h3>Following</h3>
+    <ul>
+        {% for follow in following %}
+        <li>{{ follow.followed_user.username }}</li>
+        {% empty %}
+        <li>{{ profile_user.username }} is not following anyone.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Followers</h3>
+    <ul>
+        {% for follow in followers %}
+        <li>{{ follow.user.username }}</li>
+        {% empty %}
+        <li>{{ profile_user.username }} has no followers.</li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        {% if is_following %}
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="unfollow" value="true">
+                <button type="submit">Unfollow</button>
+            </form>
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="followed_user" value="{{ profile_user.id }}">
+                <button type="submit" name="follow">Follow</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Review</title>
+</head>
+<body>
+    <h1>Delete Review</h1>
+    <p>SURE???</p>
+    <h3>{{ review.headline }}</h3>
+    <p>Rating: {{ review.rating }}</p>
+    <p>{{ review.body }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">YES,DELETE!</button>
+    </form>
+    <a href="{% url 'blog:ticket_detail' review.ticket.id %}">Cancel</a>
+</body>
+</html>

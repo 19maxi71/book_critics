@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Feed</title>
+</head>
+<body>
+    <h1>Feed</h1>
+
+    {% for post in posts %}
+        {% if post.content_type == 'TICKET' %}
+            <div class="ticket">
+                <h2><a href="{% url 'blog:ticket_detail' post.id %}">{{ post.title }}</a></h2>
+                {% comment %} <h2>{{ post.title }}</h2> {% endcomment %}
+                <p>{{ post.description }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="Ticket Image">
+                {% endif %}
+                <p>Posted by: {{ post.user.username }}</p>
+                <p>Created on: {{ post.time_created }}</p>
+            </div>
+        {% elif post.content_type == 'REVIEW' %}
+            <div class="review">
+                <h2>{{ post.headline }}</h2>
+                <p>{{ post.body }}</p>
+                <p>Rating: {{ post.rating }}</p>
+                <p>Review by: {{ post.user.username }}</p>
+                <p>Created on: {{ post.time_created }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div>
+        <a href="{% url 'blog:create_ticket' %}">Create a Ticket</a>
+        <span> | | | </span>
+        <form method="post" action="{% url 'blog:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

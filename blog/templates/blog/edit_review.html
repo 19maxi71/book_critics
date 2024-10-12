@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Review</title>
+</head>
+<body>
+    <h1>Edit Review for {{ review.ticket.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'blog:ticket_detail' review.ticket.id %}">Cancel</a>
+</body>
+</html>
