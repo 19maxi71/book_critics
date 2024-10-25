@@ -6,10 +6,10 @@ from itertools import chain
 from django.contrib.auth.forms import UserCreationForm
 from .forms import TicketForm, ReviewForm, FollowUserForm, UserSearchForm
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.db import IntegrityError
 from django.contrib import messages
-
+from django.http import HttpResponseForbidden
 
 def register(request):
     if request.method == 'POST':
@@ -35,7 +35,6 @@ def feed(request):
     posts = sorted(chain(reviews, tickets), key=lambda post: post.time_created, reverse=True)
     return render(request, 'blog/feed.html', {'posts': posts})
 
-
 def index(request):
     return render(request, 'blog/index.html')
 
@@ -53,23 +52,31 @@ def create_ticket(request):
     return render(request, 'blog/create_ticket.html', {'form': form})
 
 @login_required
+@permission_required('blog.change_ticket', raise_exception=True)
 def edit_ticket(request, ticket_id):
-    ticket = get_object_or_404(Ticket, id=ticket_id)  # prends le ticket ou retourne une erreur 404 si non trouvé
+    ticket = get_object_or_404(Ticket, id=ticket_id)
+    if ticket.user != request.user:
+        return HttpResponseForbidden("You are not allowed to edit this ticket.")
+    
     if request.method == 'POST':
-        form = TicketForm(request.POST, instance=review)
+        form = TicketForm(request.POST, instance=ticket)
         if form.is_valid():
             form.save()
-            return redirect('blog:ticket_detail', ticket_id=ticket.id)  # transfert à la page de détail du ticket
+            return redirect('blog:ticket_detail', ticket_id=ticket.id)
     else:
-        form = TicketForm(instance=ticket)  # Pré-remplir le formulaire avec les données de la critique existante
+        form = TicketForm(instance=ticket)
     return render(request, 'blog/edit_ticket.html', {'form': form, 'ticket': ticket})
 
 @login_required
+@permission_required('blog.delete_ticket', raise_exception=True)
 def delete_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
+    if ticket.user != request.user:
+        return HttpResponseForbidden("You are not allowed to delete this ticket.")
+    
     if request.method == 'POST':
-        ticket.delete()  # Supprimer le ticket
-        return redirect('blog:ticket_detail', ticket_id=ticket.id) # Rediriger vers la page de détail du ticket
+        ticket.delete()
+        return redirect('blog:ticket_detail', ticket_id=ticket.id)
     return render(request, 'blog/delete_ticket.html', {'ticket': ticket})
 
 @login_required
@@ -92,26 +99,32 @@ def ticket_detail(request, ticket_id):
     reviews = Review.objects.filter(ticket=ticket)
     return render(request, 'blog/ticket_detail.html', {'ticket': ticket, 'reviews': reviews})
 
-from django.shortcuts import get_object_or_404
-
 @login_required
+@permission_required('blog.change_review', raise_exception=True)
 def edit_review(request, review_id):
-    review = get_object_or_404(Review, id=review_id)  # Get the review or return a 404 if not found
+    review = get_object_or_404(Review, id=review_id)
+    if review.user != request.user:
+        return HttpResponseForbidden("You are not allowed to edit this review.")
+    
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
-            return redirect('blog:ticket_detail', ticket_id=review.ticket.id)  # Redirect to ticket detail page
+            return redirect('blog:ticket_detail', ticket_id=review.ticket.id)
     else:
-        form = ReviewForm(instance=review)  # Pre-fill the form with the existing review data
+        form = ReviewForm(instance=review)
     return render(request, 'blog/edit_review.html', {'form': form, 'review': review})
 
 @login_required
+@permission_required('blog.delete_review', raise_exception=True)
 def delete_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
+    if review.user != request.user:
+        return HttpResponseForbidden("You are not allowed to delete this review.")
+    
     if request.method == 'POST':
-        review.delete()  # Delete the review
-        return redirect('blog:ticket_detail', ticket_id=review.ticket.id)  # Redirect to ticket detail page
+        review.delete()
+        return redirect('blog:ticket_detail', ticket_id=review.ticket.id)
     return render(request, 'blog/delete_review.html', {'review': review})
 
 def ticket_reviews_details(request, ticket_id):
@@ -119,10 +132,12 @@ def ticket_reviews_details(request, ticket_id):
     reviews = Review.objects.filter(ticket=ticket).order_by('-time_created')
     return render(request, 'blog/ticket_detail.html', {'ticket': ticket, 'reviews': reviews})
 
-
 @login_required
 def user_profile(request, username):
     profile_user = get_object_or_404(User, username=username)
+    if request.user != profile_user:
+        return HttpResponseForbidden("ACCESS DENIED")
+    
     following = UserFollows.objects.filter(user=profile_user).select_related('followed_user')
     followers = UserFollows.objects.filter(followed_user=profile_user).select_related('user')
 
@@ -146,7 +161,7 @@ def user_profile(request, username):
         elif 'unfollow' in request.POST:  # Unfollow button pressed
             try:
                 follow_instance = UserFollows.objects.get(user=request.user, followed_user_id=request.POST['user_id'])
-                follow_instance.delete()  # Remove the following relationship
+                follow_instance.delete()
             except UserFollows.DoesNotExist:
                 pass
             return redirect('blog:user_profile', username=username)
@@ -172,18 +187,15 @@ def create_critique(request):
         review_form = ReviewForm(request.POST)
         
         if ticket_form.is_valid() and review_form.is_valid():
-            # save ticket form en premier
             ticket = ticket_form.save(commit=False)
             ticket.user = request.user
             ticket.save()
 
-            # save review form au ticket
             review = review_form.save(commit=False)
             review.user = request.user
             review.ticket = ticket
             review.save()
 
-            # rediriger vers la page de flux
             return redirect('blog:feed')
     else:
         ticket_form = TicketForm()
