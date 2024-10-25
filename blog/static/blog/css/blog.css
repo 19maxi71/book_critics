@@ -49,8 +49,10 @@ button:hover {
 
 h1 {
     text-align: center;
+}
 
 img {
-    max-width: 100%;
-    height: auto;
+    border: 2px solid black !important;
+    max-width: 40% !important;
+    height: auto !important;
 }

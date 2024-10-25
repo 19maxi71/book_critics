@@ -4,10 +4,15 @@
 {% block header %}{% include 'blog/header_no_links.html' %}{% endblock %}
 
 {% block content %}
+<div class="container">
     <h1>Register</h1>
-    <form method="post">
+    <form method="post" class="mb-4 p-3 border rounded border-dark">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Register</button>
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'blog:index' %}" class="btn btn-secondary">Go Back</a>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
     </form>
+</div>
 {% endblock %}

@@ -13,17 +13,22 @@
 
         {% for post in posts %}
             {% if post.content_type == 'TICKET' %}
-                <div class="ticket">
+                <div class="ticket mb-4 p-3 border-dark">
                     <h2><a href="{% url 'blog:ticket_detail' post.id %}">{{ post.title }}</a></h2>
                     <p>{{ post.description }}</p>
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="Ticket Image">
+                        <img src="{{ post.image.url }}" alt="Ticket Image" class="img-fluid">
                     {% endif %}
                     <p>Posted by: {{ post.user.username }}</p>
                     <p>Created on: {{ post.time_created }}</p>
+                    {% if post.user != request.user %}
+                        <div class="d-flex justify-content-end">
+                            <a href="{% url 'blog:create_review' post.id %}" class="btn btn-success btn-sm">Write a Review</a>
+                        </div>
+                    {% endif %}
                 </div>
             {% elif post.content_type == 'REVIEW' %}
-                <div class="review">
+                <div class="review mb-4 p-3 border-dark">
                     <h2>{{ post.headline }}</h2>
                     <p>{{ post.body }}</p>
                     <p>Rating: {{ post.rating }}</p>

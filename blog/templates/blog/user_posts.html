@@ -6,30 +6,33 @@
 {% block content %}
     <div class="container">
         <h1>My Posts</h1>
-        
-        {% comment %} <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-            <a href="{% url 'blog:create_ticket' %}" class="btn btn-primary">Create Ticket</a>
-            <a href="{% url 'blog:create_critique' %}" class="btn btn-danger">Create Critique</a>
-        </div> {% endcomment %}
 
         {% for post in posts %}
             {% if post.content_type == 'TICKET' %}
-                <div class="ticket">
+                <div class="ticket mb-4 p-3 border rounded">
                     <h2><a href="{% url 'blog:ticket_detail' post.id %}">{{ post.title }}</a></h2>
                     <p>{{ post.description }}</p>
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="Ticket Image">
+                        <img src="{{ post.image.url }}" alt="Ticket Image" class="img-fluid">
                     {% endif %}
                     <p>Posted by: {{ post.user.username }}</p>
                     <p>Created on: {{ post.time_created }}</p>
+                    <div class="d-flex justify-content-end">
+                        <a href="{% url 'blog:edit_ticket' post.id %}" class="btn btn-warning btn-sm me-2">Edit</a>
+                        <a href="{% url 'blog:delete_ticket' post.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
                 </div>
             {% elif post.content_type == 'REVIEW' %}
-                <div class="review">
+                <div class="review mb-4 p-3 border rounded">
                     <h2>{{ post.headline }}</h2>
                     <p>{{ post.body }}</p>
                     <p>Rating: {{ post.rating }}</p>
                     <p>Reviewed by: {{ post.user.username }}</p>
                     <p>Created on: {{ post.time_created }}</p>
+                    <div class="d-flex justify-content-end">
+                        <a href="{% url 'blog:edit_review' post.id %}" class="btn btn-warning btn-sm me-2">Edit</a>
+                        <a href="{% url 'blog:delete_review' post.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
                 </div>
             {% endif %}
         {% empty %}

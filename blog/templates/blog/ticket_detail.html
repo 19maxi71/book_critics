@@ -14,16 +14,16 @@
     
     {% if ticket.user == request.user %}
     <div class="ticket-actions">
-        <a href="{% url 'blog:edit_ticket' ticket.id %}" class="btn-edit">Edit Ticket</a>
+        <a href="{% url 'blog:edit_ticket' ticket.id %}" class="btn btn-warning btn-sm me-2">Edit Ticket</a>
         <span> | </span>
-        <a href="{% url 'blog:delete_ticket' ticket.id %}" class="btn-delete">Delete Ticket</a>
+        <a href="{% url 'blog:delete_ticket' ticket.id %}" class="btn btn-danger btn-sm">Delete Ticket</a>
     </div>
     {% endif %}
 
     <h2>Reviews:</h2>
     <ul class="review-list">
         {% for review in reviews %}
-            <li class="review-item">
+            <li class="review-item mb-4 p-3 border rounded border-dark">
                 <h3>{{ review.headline }}</h3>
                 <p>Rating: {{ review.rating }}</p>
                 <p>{{ review.body }}</p>
@@ -31,9 +31,9 @@
                 <p>Created on: {{ review.time_created }}</p>
                 {% if review.user == request.user %}  <!-- check et montre edit/delete que pour l'auteur -->
                 <div class="review-actions">
-                    <a href="{% url 'blog:edit_review' review.id %}" class="btn-edit">Edit Review</a>
+                    <a href="{% url 'blog:edit_review' review.id %}" class="btn btn-warning btn-sm me-2">Edit Review</a>
                     <span> | </span>
-                    <a href="{% url 'blog:delete_review' review.id %}" class="btn-delete">Delete Review</a>
+                    <a href="{% url 'blog:delete_review' review.id %}" class="btn btn-danger btn-sm">Delete Review</a>
                 </div>
                 {% endif %}
             </li>
@@ -42,6 +42,6 @@
         {% endfor %}
     </ul>
     
-    <a href="{% url 'blog:create_review' ticket.id %}" class="btn-write-review">Write a Review</a>
+    <a href="{% url 'blog:create_review' ticket.id %}" class="btn btn-success btn-sm">Write a Review</a>
 </div>
 {% endblock %}
