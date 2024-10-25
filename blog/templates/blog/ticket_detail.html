@@ -12,11 +12,13 @@
         <img src="{{ ticket.image.url }}" alt="Ticket Image" class="ticket-image">
     {% endif %}
     
+    {% if ticket.user == request.user %}
     <div class="ticket-actions">
         <a href="{% url 'blog:edit_ticket' ticket.id %}" class="btn-edit">Edit Ticket</a>
         <span> | </span>
         <a href="{% url 'blog:delete_ticket' ticket.id %}" class="btn-delete">Delete Ticket</a>
     </div>
+    {% endif %}
 
     <h2>Reviews:</h2>
     <ul class="review-list">
@@ -27,11 +29,13 @@
                 <p>{{ review.body }}</p>
                 <p>Reviewed by: {{ review.user.username }}</p>
                 <p>Created on: {{ review.time_created }}</p>
+                {% if review.user == request.user %}  <!-- check et montre edit/delete que pour l'auteur -->
                 <div class="review-actions">
                     <a href="{% url 'blog:edit_review' review.id %}" class="btn-edit">Edit Review</a>
                     <span> | </span>
                     <a href="{% url 'blog:delete_review' review.id %}" class="btn-delete">Delete Review</a>
                 </div>
+                {% endif %}
             </li>
         {% empty %}
             <li>No reviews yet.</li>

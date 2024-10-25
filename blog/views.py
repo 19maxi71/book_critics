@@ -52,7 +52,6 @@ def create_ticket(request):
     return render(request, 'blog/create_ticket.html', {'form': form})
 
 @login_required
-@permission_required('blog.change_ticket', raise_exception=True)
 def edit_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     if ticket.user != request.user:
@@ -68,7 +67,6 @@ def edit_ticket(request, ticket_id):
     return render(request, 'blog/edit_ticket.html', {'form': form, 'ticket': ticket})
 
 @login_required
-@permission_required('blog.delete_ticket', raise_exception=True)
 def delete_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     if ticket.user != request.user:
@@ -100,7 +98,6 @@ def ticket_detail(request, ticket_id):
     return render(request, 'blog/ticket_detail.html', {'ticket': ticket, 'reviews': reviews})
 
 @login_required
-@permission_required('blog.change_review', raise_exception=True)
 def edit_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
     if review.user != request.user:
@@ -116,7 +113,6 @@ def edit_review(request, review_id):
     return render(request, 'blog/edit_review.html', {'form': form, 'review': review})
 
 @login_required
-@permission_required('blog.delete_review', raise_exception=True)
 def delete_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
     if review.user != request.user:
