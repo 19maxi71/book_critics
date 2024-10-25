@@ -7,7 +7,6 @@ class TicketForm(forms.ModelForm):
         model = Ticket
         fields = ['title', 'description', 'image']
         
-
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
@@ -17,3 +16,6 @@ class FollowUserForm(forms.ModelForm):
     class Meta:
         model = UserFollows
         fields = ['followed_user']
+
+class UserSearchForm(forms.Form):
+    username = forms.CharField(max_length=150, required=False, label='Search for users')

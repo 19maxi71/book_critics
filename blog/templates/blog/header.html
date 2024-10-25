@@ -1,0 +1,22 @@
+<header>
+        <div style="display: flex; justify-content: space-between; align-items: center;" class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+            <span style="flex: 1; text-align: center; margin-left: 100px!important">LITRevu</span>
+            <span style="flex: 1; text-align: center; margin-left: 100px!important">LITRevu</span>
+            <span style="flex: 1; text-align: right;">
+                <a href="{% url 'blog:feed' %}">Flux</a>
+                <span> | </span>
+                <a href="{% url 'blog:user_posts' %}">Posts</a>
+                <span> | </span>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'blog:user_profile' username=request.user.username %}">Abonnements</a>
+                    <span> | </span>
+                    <form method="post" action="{% url 'blog:logout' %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'blog:login' %}">Login</a>
+                {% endif %}
+            </span>
+        </div>
+</header>

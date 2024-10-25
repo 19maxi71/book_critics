@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Review</title>
-</head>
-<body>
+{% extends 'blog/layout.html' %}
+
+{% block title %} Edit Review {% endblock %}
+
+{% block header %} {% include 'blog/header.html' %} {% endblock %}
+
+{% block content %}
+<div class="container"> 
     <h1>Edit Review for {{ review.ticket.title }}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Save Changes</button>
+        <button type="submit" class="btn-save">Save Changes</button>
     </form>
-    <a href="{% url 'blog:ticket_detail' review.ticket.id %}">Cancel</a>
-</body>
-</html>
+    
+    <a href="{% url 'blog:ticket_detail' review.ticket.id %}" class="btn-cancel">Cancel</a>
+</div>
+{% endblock %}

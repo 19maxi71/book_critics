@@ -1,15 +1,16 @@
-{% extends "blog/layout.html" %}
-{% block title %} Feed {% endblock %}
-{% block header %} {% include 'blog/header.html' %} {% endblock %}
+{% extends 'blog/layout.html' %}
+
+{% block title %}My Posts{% endblock %}
+{% block header %}{% include 'blog/header.html' %}{% endblock %}
 
 {% block content %}
     <div class="container">
-        <h1>Feed</h1>
+        <h1>My Posts</h1>
         
-        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; margin-left: 100px; margin-right: 100px;">
+        {% comment %} <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
             <a href="{% url 'blog:create_ticket' %}" class="btn btn-primary">Create Ticket</a>
             <a href="{% url 'blog:create_critique' %}" class="btn btn-danger">Create Critique</a>
-        </div>
+        </div> {% endcomment %}
 
         {% for post in posts %}
             {% if post.content_type == 'TICKET' %}
@@ -27,10 +28,12 @@
                     <h2>{{ post.headline }}</h2>
                     <p>{{ post.body }}</p>
                     <p>Rating: {{ post.rating }}</p>
-                    <p>Review by: {{ post.user.username }}</p>
+                    <p>Reviewed by: {{ post.user.username }}</p>
                     <p>Created on: {{ post.time_created }}</p>
                 </div>
             {% endif %}
+        {% empty %}
+            <p>No posts found.</p>
         {% endfor %}
     </div>
 {% endblock %}

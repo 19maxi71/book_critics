@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Ticket</title>
-</head>
-<body>
+{% extends 'blog/layout.html' %}
+
+{% block title %}Create Ticket{% endblock %}
+
+{% block header %}{% include 'blog/header.html' %}{% endblock %}
+
+{% block content %}
+<div class="container"> 
     <h1>Create a New Ticket</h1>
 
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %} 
-        {{ form.as_p }}   
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+    <div class="ticket-form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}   
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

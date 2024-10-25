@@ -1,0 +1,56 @@
+
+.container {
+    max-width: 800px; /* Limit the width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add some padding */
+    border: 3px solid black;
+    background-color: rgb(255, 255, 255); 
+}
+
+
+.ticket, .review {
+    border: 3px solid black;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 2px; 
+}
+
+.ticket {
+    background-color: rgb(186, 211, 235); /* Light background */
+}
+
+.review {
+    background-color: rgb(249, 179, 179); /* White background */
+}
+
+
+.ticket-form {
+    border: 3px solid black; /* Border for the form */
+    background-color: rgb(186, 211, 235); /* Light background */
+    padding: 20px; /* Space inside the form */
+    margin-bottom: 20px; /* Space below the form */
+    border-radius: 2px;
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+h1 {
+    text-align: center;
+
+img {
+    max-width: 100%;
+    height: auto;
+}

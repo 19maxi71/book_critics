@@ -1,9 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register</title>
-</head>
-<body>
-    <h1>INDEX FOR TEST à supp</h1>
-</body>
-</html>
+{% extends 'blog/layout.html' %}
+
+{% block title %}Welcome to LITRevu{% endblock %}
+
+{% block header %}{% include 'blog/header_no_links.html' %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Welcome to LITRevu</h2>
+            <p>Your go-to platform for book reviews and literary discussions.</p>
+            <a href="{% url 'blog:register' %}" class="btn btn-primary">Register</a>
+        </div>
+        <div class="col-md-6">
+            <h2>Sign In</h2>
+            <form method="post" action="{% url 'blog:login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

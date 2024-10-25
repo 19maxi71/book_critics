@@ -1,7 +1,18 @@
-<h1>Edit Ticket</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
-</form>
-<a href="{% url 'blog:ticket_detail' ticket.id %}">Cancel</a>
+{% extends 'blog/layout.html' %}
+
+{% block title %} Edit Ticket {% endblock %}
+
+{% block header %} {% include 'blog/header.html' %} {% endblock %}
+
+{% block content %}
+<div class="container"> 
+    <h1>Edit Ticket</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-save">Save Changes</button>
+    </form>
+    
+    <a href="{% url 'blog:ticket_detail' ticket.id %}" class="btn-cancel">Cancel</a>
+</div>
+{% endblock %}

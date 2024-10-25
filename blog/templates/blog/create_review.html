@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Write a Review</title>
-</head>
-<body>
+{% extends 'blog/layout.html' %}
+
+{% block title %} Review for: {{ ticket.title }}{% endblock %}
+{% block header %} {% include 'blog/header.html' %} {% endblock %}
+{% block content %}
+<div class="container"> 
     <h1>Review for: {{ ticket.title }}</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }} 
-        <button type="submit">Submit Review</button>
-    </form>
-</body>
-</html>
+    <div class="ticket-form">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

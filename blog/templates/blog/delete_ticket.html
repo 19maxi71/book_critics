@@ -1,6 +1,17 @@
-<h1>Are you sure you want to delete the ticket "{{ ticket.title }}"?</h1>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete</button>
-</form>
-<a href="{% url 'blog:ticket_detail' ticket.id %}">Cancel</a>
+{% extends 'blog/layout.html' %}
+
+{% block title %} Delete Ticket {% endblock %}
+
+{% block header %} {% include 'blog/header.html' %} {% endblock %}
+
+{% block content %}
+<div class="container"> 
+    <h1>Are you sure you want to delete the ticket "{{ ticket.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn-delete">Yes, delete</button>
+    </form>
+    
+    <a href="{% url 'blog:ticket_detail' ticket.id %}" class="btn-cancel">Cancel</a>
+</div>
+{% endblock %}

@@ -25,4 +25,7 @@ urlpatterns = [
     path('user_profile/<str:username>/', views.user_profile, name='user_profile'),
     path('login/', LoginView.as_view(template_name='blog/login.html'), name='login'),
     path('logout/', LogoutView.as_view(), name='blog/logout'),
+    path('create_critique/', views.create_critique, name='create_critique'),
+    path('user_posts/', views.user_posts, name='user_posts'),
+    
 ]

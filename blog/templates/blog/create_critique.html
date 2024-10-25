@@ -1,0 +1,19 @@
+{% extends 'blog/layout.html' %}
+
+{% block title %} Create Critique {% endblock %}
+{% block header %} {% include 'blog/header.html' %} {% endblock %}
+
+{% block content %}
+<div class="container"> 
+    <h1>Create a New Critique</h1>
+
+    <div class="ticket-form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ ticket_form.as_p }}
+            {{ review_form.as_p }}
+            <button type="submit">Submit Critique</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
