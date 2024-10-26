@@ -9,7 +9,7 @@
     <h1>{{ ticket.title }}</h1>
     <p>{{ ticket.description }}</p>
     {% if ticket.image %}
-        <img src="{{ ticket.image.url }}" alt="Ticket Image" class="ticket-image">
+        <img src="{{ ticket.image.url }}" alt="Ticket Image:{{ post.title }}" class="ticket-image">
     {% endif %}
     
     {% if ticket.user == request.user %}

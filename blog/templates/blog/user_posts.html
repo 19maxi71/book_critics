@@ -13,7 +13,7 @@
                     <h2><a href="{% url 'blog:ticket_detail' post.id %}">{{ post.title }}</a></h2>
                     <p>{{ post.description }}</p>
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="Ticket Image" class="img-fluid">
+                        <img src="{{ post.image.url }}" alt="Ticket Image:{{ post.title }}" class="img-fluid">
                     {% endif %}
                     <p>Posted by: {{ post.user.username }}</p>
                     <p>Created on: {{ post.time_created }}</p>

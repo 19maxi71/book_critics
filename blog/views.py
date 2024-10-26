@@ -6,7 +6,7 @@ from itertools import chain
 from django.contrib.auth.forms import UserCreationForm
 from .forms import TicketForm, ReviewForm, FollowUserForm, UserSearchForm
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.contrib import messages
 from django.http import HttpResponseForbidden
