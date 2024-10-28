@@ -10,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.contrib import messages
 from django.http import HttpResponseForbidden
+from django.urls import reverse
+
 
 def register(request):
     if request.method == 'POST':
@@ -80,6 +82,12 @@ def delete_ticket(request, ticket_id):
 @login_required
 def create_review(request, ticket_id):
     ticket = Ticket.objects.get(id=ticket_id)
+    
+    if Review.objects.filter(user=request.user, ticket=ticket).exists():
+        messages.error(request, "You have already reviewed this ticket.")
+        # Redirect aux détails du ticket si l'utilisateur a déjà critiqué le ticket
+        return redirect(reverse('blog:ticket_detail', args=[ticket.id]))
+    
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():

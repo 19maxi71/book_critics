@@ -20,6 +20,16 @@ class Review(models.Model):
     body = models.TextField(max_length=8192, blank=True)
     time_created = models.DateTimeField(auto_now_add=True)
 
+    # class Meta:
+    #     unique_together = ('user', 'ticket')
+    
+    # def clean(self):
+    #     if Review.objects.filter(ticket=self.ticket, user=self.user).exists():
+    #         raise ValidationError('You have already reviewed this ticket.')
+
+    # def save(self, *args, **kwargs):
+    #     self.clean()
+    #     super().save(*args, **kwargs)
 
 class UserFollows(models.Model):
     user = models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='following', on_delete=models.CASCADE)

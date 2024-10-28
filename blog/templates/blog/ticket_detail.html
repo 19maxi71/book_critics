@@ -41,6 +41,14 @@
             <li>No reviews yet.</li>
         {% endfor %}
     </ul>
+    {% if messages %}
+        <ul class="alert alert-danger">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     
     <a href="{% url 'blog:create_review' ticket.id %}" class="btn btn-success btn-sm">Write a Review</a>
 </div>
