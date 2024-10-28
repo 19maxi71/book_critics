@@ -56,3 +56,8 @@ img {
     max-width: 40% !important;
     height: auto !important;
 }
+
+.star-rating {
+    font-size: 1.5em;
+    color: #FFD700;
+}

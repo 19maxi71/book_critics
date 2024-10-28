@@ -12,12 +12,43 @@
         </div>
 
         {% for post in posts %}
-            {% if post.content_type == 'TICKET' %}
-                <div class="ticket mb-4 p-3 border-dark">
+            {% if post.content_type == 'REVIEW' %}
+                <div class="review mb-4 p-3 border rounded border-dark">
+                    <h2>{{ post.headline }}</h2>
+                    <!-- Rating en étoiles -->
+                    <div class="star-rating">
+                        {% for i in "12345" %}
+                            {% if forloop.counter <= post.rating %}
+                                ★ <!-- étoile pleine -->
+                            {% else %}
+                                ☆ <!-- étoile vide -->
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <p>{{ post.body }}</p>
+                    <p>Review by: {{ post.user.username }}</p>
+                    <p>Created on: {{ post.time_created }}</p>
+                    <div class="ticket mt-3 p-3 border rounded">
+                        <h3><a href="{% url 'blog:ticket_detail' post.ticket.id %}">{{ post.ticket.title }}</a></h3>
+                        <p>{{ post.ticket.description }}</p>
+                        {% if post.ticket.image %}
+                            <img src="{{ post.ticket.image.url }}" alt="Ticket Image" class="img-fluid">
+                        {% endif %}
+                        <p>Posted by: {{ post.ticket.user.username }}</p>
+                        <p>Created on: {{ post.ticket.time_created }}</p>
+                        {% if post.ticket.user != request.user %}
+                            <div class="d-flex justify-content-end">
+                                <a href="{% url 'blog:create_review' post.ticket.id %}" class="btn btn-success btn-sm">Write a Review</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% elif post.content_type == 'TICKET' %}
+                <div class="ticket mb-4 p-3 border rounded">
                     <h2><a href="{% url 'blog:ticket_detail' post.id %}">{{ post.title }}</a></h2>
                     <p>{{ post.description }}</p>
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="Ticket Image:{{ post.title }}" class="img-fluid">
+                        <img src="{{ post.image.url }}" alt="Ticket Image" class="img-fluid">
                     {% endif %}
                     <p>Posted by: {{ post.user.username }}</p>
                     <p>Created on: {{ post.time_created }}</p>
@@ -26,14 +57,6 @@
                             <a href="{% url 'blog:create_review' post.id %}" class="btn btn-success btn-sm">Write a Review</a>
                         </div>
                     {% endif %}
-                </div>
-            {% elif post.content_type == 'REVIEW' %}
-                <div class="review mb-4 p-3 border-dark">
-                    <h2>{{ post.headline }}</h2>
-                    <p>{{ post.body }}</p>
-                    <p>Rating: {{ post.rating }}</p>
-                    <p>Review by: {{ post.user.username }}</p>
-                    <p>Created on: {{ post.time_created }}</p>
                 </div>
             {% endif %}
         {% endfor %}

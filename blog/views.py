@@ -34,7 +34,23 @@ def feed(request):
     reviews = reviews.annotate(content_type=Value('REVIEW', CharField()))
     tickets = Ticket.objects.filter(user__in=following_users) | Ticket.objects.filter(user=request.user)
     tickets = tickets.annotate(content_type=Value('TICKET', CharField()))
-    posts = sorted(chain(reviews, tickets), key=lambda post: post.time_created, reverse=True)
+
+    # Create a dictionary to store the latest review for each ticket
+    latest_reviews = {}
+    for review in reviews:
+        if review.ticket.id not in latest_reviews or review.time_created > latest_reviews[review.ticket.id].time_created:
+            latest_reviews[review.ticket.id] = review
+
+    # Combine tickets and their latest reviews into a single list
+    posts = []
+    for ticket in tickets:
+        if ticket.id in latest_reviews:
+            posts.append(latest_reviews[ticket.id])
+        posts.append(ticket)
+
+    # Sort the combined list by creation time
+    posts = sorted(posts, key=lambda post: post.time_created, reverse=True)
+
     return render(request, 'blog/feed.html', {'posts': posts})
 
 def index(request):
