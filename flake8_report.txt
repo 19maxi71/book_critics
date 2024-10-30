@@ -1,0 +1,112 @@
+[1m./blog/admin.py[m[36m:[m2[36m:[m1[36m:[m [1m[31mF811[m redefinition of unused 'admin' from line 1
+[1m./blog/admin.py[m[36m:[m9[36m:[m33[36m:[m [1m[31mW292[m no newline at end of file
+[1m./blog/forms.py[m[36m:[m4[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m./blog/forms.py[m[36m:[m34[36m:[m89[36m:[m [1m[31mE501[m line too long (99 > 88 characters)
+[1m./blog/forms.py[m[36m:[m34[36m:[m100[36m:[m [1m[31mW292[m no newline at end of file
+[1m./blog/migrations/0001_initial.py[m[36m:[m21[36m:[m89[36m:[m [1m[31mE501[m line too long (117 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m26[36m:[m89[36m:[m [1m[31mE501[m line too long (118 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m32[36m:[m89[36m:[m [1m[31mE501[m line too long (117 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m33[36m:[m89[36m:[m [1m[31mE501[m line too long (164 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m37[36m:[m89[36m:[m [1m[31mE501[m line too long (118 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m38[36m:[m89[36m:[m [1m[31mE501[m line too long (109 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m47[36m:[m89[36m:[m [1m[31mE501[m line too long (117 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m48[36m:[m89[36m:[m [1m[31mE501[m line too long (155 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m49[36m:[m89[36m:[m [1m[31mE501[m line too long (144 > 88 characters)
+[1m./blog/models.py[m[36m:[m7[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m./blog/models.py[m[36m:[m26[36m:[m89[36m:[m [1m[31mE501[m line too long (102 > 88 characters)
+[1m./blog/models.py[m[36m:[m40[36m:[m89[36m:[m [1m[31mE501[m line too long (109 > 88 characters)
+[1m./blog/models.py[m[36m:[m41[36m:[m89[36m:[m [1m[31mE501[m line too long (120 > 88 characters)
+[1m./blog/models.py[m[36m:[m44[36m:[m54[36m:[m [1m[31mW292[m no newline at end of file
+[1m./blog/tests.py[m[36m:[m1[36m:[m1[36m:[m [1m[31mF401[m 'django.test.TestCase' imported but unused
+[1m./blog/urls.py[m[36m:[m22[36m:[m89[36m:[m [1m[31mE501[m line too long (113 > 88 characters)
+[1m./blog/urls.py[m[36m:[m30[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m39[36m:[m89[36m:[m [1m[31mE501[m line too long (107 > 88 characters)
+[1m./blog/views.py[m[36m:[m40[36m:[m89[36m:[m [1m[31mE501[m line too long (104 > 88 characters)
+[1m./blog/views.py[m[36m:[m42[36m:[m89[36m:[m [1m[31mE501[m line too long (104 > 88 characters)
+[1m./blog/views.py[m[36m:[m48[36m:[m89[36m:[m [1m[31mE501[m line too long (121 > 88 characters)
+[1m./blog/views.py[m[36m:[m96[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m115[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m128[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m131[36m:[m89[36m:[m [1m[31mE501[m line too long (89 > 88 characters)
+[1m./blog/views.py[m[36m:[m133[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m153[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m163[36m:[m89[36m:[m [1m[31mE501[m line too long (91 > 88 characters)
+[1m./blog/views.py[m[36m:[m164[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m182[36m:[m89[36m:[m [1m[31mE501[m line too long (92 > 88 characters)
+[1m./blog/views.py[m[36m:[m183[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m192[36m:[m89[36m:[m [1m[31mE501[m line too long (92 > 88 characters)
+[1m./blog/views.py[m[36m:[m196[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m207[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m208[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m209[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m215[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m230[36m:[m89[36m:[m [1m[31mE501[m line too long (118 > 88 characters)
+[1m./blog/views.py[m[36m:[m245[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m259[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m286[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m287[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m288[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m289[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m290[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m291[36m:[m69[36m:[m [1m[31mW292[m no newline at end of file
+[1m./book_critics/settings.py[m[36m:[m87[36m:[m1[36m:[m [1m[31mE303[m too many blank lines (3)
+[1m./book_critics/settings.py[m[36m:[m92[36m:[m89[36m:[m [1m[31mE501[m line too long (91 > 88 characters)
+[1m./book_critics/settings.py[m[36m:[m140[36m:[m45[36m:[m [1m[31mW292[m no newline at end of file
+[1m./book_critics/urls.py[m[36m:[m28[36m:[m89[36m:[m [1m[31mE501[m line too long (95 > 88 characters)
+[1m./book_critics/urls.py[m[36m:[m30[36m:[m89[36m:[m [1m[31mE501[m line too long (89 > 88 characters)
+[1m./blog/admin.py[m[36m:[m2[36m:[m1[36m:[m [1m[31mF811[m redefinition of unused 'admin' from line 1
+[1m./blog/admin.py[m[36m:[m9[36m:[m33[36m:[m [1m[31mW292[m no newline at end of file
+[1m./blog/forms.py[m[36m:[m4[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m./blog/forms.py[m[36m:[m34[36m:[m89[36m:[m [1m[31mE501[m line too long (99 > 88 characters)
+[1m./blog/forms.py[m[36m:[m34[36m:[m100[36m:[m [1m[31mW292[m no newline at end of file
+[1m./blog/migrations/0001_initial.py[m[36m:[m21[36m:[m89[36m:[m [1m[31mE501[m line too long (117 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m26[36m:[m89[36m:[m [1m[31mE501[m line too long (118 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m32[36m:[m89[36m:[m [1m[31mE501[m line too long (117 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m33[36m:[m89[36m:[m [1m[31mE501[m line too long (164 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m37[36m:[m89[36m:[m [1m[31mE501[m line too long (118 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m38[36m:[m89[36m:[m [1m[31mE501[m line too long (109 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m47[36m:[m89[36m:[m [1m[31mE501[m line too long (117 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m48[36m:[m89[36m:[m [1m[31mE501[m line too long (155 > 88 characters)
+[1m./blog/migrations/0001_initial.py[m[36m:[m49[36m:[m89[36m:[m [1m[31mE501[m line too long (144 > 88 characters)
+[1m./blog/models.py[m[36m:[m7[36m:[m1[36m:[m [1m[31mE302[m expected 2 blank lines, found 1
+[1m./blog/models.py[m[36m:[m26[36m:[m89[36m:[m [1m[31mE501[m line too long (102 > 88 characters)
+[1m./blog/models.py[m[36m:[m40[36m:[m89[36m:[m [1m[31mE501[m line too long (109 > 88 characters)
+[1m./blog/models.py[m[36m:[m41[36m:[m89[36m:[m [1m[31mE501[m line too long (120 > 88 characters)
+[1m./blog/models.py[m[36m:[m44[36m:[m54[36m:[m [1m[31mW292[m no newline at end of file
+[1m./blog/tests.py[m[36m:[m1[36m:[m1[36m:[m [1m[31mF401[m 'django.test.TestCase' imported but unused
+[1m./blog/urls.py[m[36m:[m22[36m:[m89[36m:[m [1m[31mE501[m line too long (113 > 88 characters)
+[1m./blog/urls.py[m[36m:[m30[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m39[36m:[m89[36m:[m [1m[31mE501[m line too long (107 > 88 characters)
+[1m./blog/views.py[m[36m:[m40[36m:[m89[36m:[m [1m[31mE501[m line too long (104 > 88 characters)
+[1m./blog/views.py[m[36m:[m42[36m:[m89[36m:[m [1m[31mE501[m line too long (104 > 88 characters)
+[1m./blog/views.py[m[36m:[m48[36m:[m89[36m:[m [1m[31mE501[m line too long (121 > 88 characters)
+[1m./blog/views.py[m[36m:[m96[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m115[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m128[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m131[36m:[m89[36m:[m [1m[31mE501[m line too long (89 > 88 characters)
+[1m./blog/views.py[m[36m:[m133[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m153[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m163[36m:[m89[36m:[m [1m[31mE501[m line too long (91 > 88 characters)
+[1m./blog/views.py[m[36m:[m164[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m182[36m:[m89[36m:[m [1m[31mE501[m line too long (92 > 88 characters)
+[1m./blog/views.py[m[36m:[m183[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m192[36m:[m89[36m:[m [1m[31mE501[m line too long (92 > 88 characters)
+[1m./blog/views.py[m[36m:[m196[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m207[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m208[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m209[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m215[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m230[36m:[m89[36m:[m [1m[31mE501[m line too long (118 > 88 characters)
+[1m./blog/views.py[m[36m:[m245[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m259[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m286[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m287[36m:[m89[36m:[m [1m[31mE501[m line too long (106 > 88 characters)
+[1m./blog/views.py[m[36m:[m288[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m289[36m:[m89[36m:[m [1m[31mE501[m line too long (93 > 88 characters)
+[1m./blog/views.py[m[36m:[m290[36m:[m1[36m:[m [1m[31mW293[m blank line contains whitespace
+[1m./blog/views.py[m[36m:[m291[36m:[m69[36m:[m [1m[31mW292[m no newline at end of file
+[1m./book_critics/settings.py[m[36m:[m87[36m:[m1[36m:[m [1m[31mE303[m too many blank lines (3)
+[1m./book_critics/settings.py[m[36m:[m92[36m:[m89[36m:[m [1m[31mE501[m line too long (91 > 88 characters)
+[1m./book_critics/settings.py[m[36m:[m140[36m:[m45[36m:[m [1m[31mW292[m no newline at end of file
+[1m./book_critics/urls.py[m[36m:[m28[36m:[m89[36m:[m [1m[31mE501[m line too long (95 > 88 characters)
+[1m./book_critics/urls.py[m[36m:[m30[36m:[m89[36m:[m [1m[31mE501[m line too long (89 > 88 characters)
