@@ -1,5 +1,5 @@
 from django import forms
-from .models import Review, UserFollows
+from .models import Review, UserFollows, Ticket
 
 class ReviewForm(forms.ModelForm):
     """
@@ -32,3 +32,11 @@ class UserSearchForm(forms.Form):
     Formulaire pour rechercher des utilisateurs.
     """
     username = forms.CharField(max_length=150, required=False, label='Rechercher des utilisateurs')
+
+class TicketForm(forms.ModelForm):
+    """
+    Formulaire pour créer ou éditer un ticket.
+    """
+    class Meta:
+        model = Ticket
+        fields = ['title', 'description', 'image']
